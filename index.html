@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ A Special Surprise ✨</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:linear-gradient(#001933,#0b4f6c,#87ceeb);
+    font-family:Arial,sans-serif;
+    color:white;
+    text-align:center;
+}
+
+h1{
+    margin-top:120px;
+    font-size:60px;
+    animation: glow 2s infinite alternate;
+}
+
+h2{
+    font-size:30px;
+}
+
+p{
+    font-size:22px;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px white;}
+    to{ text-shadow:0 0 30px gold;}
+}
+
+/* Airplane */
+.plane{
+    position:absolute;
+    top:80px;
+    left:-150px;
+    font-size:70px;
+    animation: fly 14s linear infinite;
+}
+
+@keyframes fly{
+    from{transform:translateX(0);}
+    to{transform:translateX(120vw);}
+}
+
+/* Blossoms */
+.flower{
+    position:absolute;
+    top:-20px;
+    font-size:22px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+/* Fireworks */
+.firework{
+    position:absolute;
+    font-size:30px;
+    animation: boom 3s infinite;
+}
+
+@keyframes boom{
+    0%{opacity:0;transform:scale(0);}
+    50%{opacity:1;transform:scale(1.5);}
+    100%{opacity:0;transform:scale(0);}
+}
+
+.flag{
+    font-size:70px;
+    margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="plane">✈️</div>
+
+<h1>Happy Journey!</h1>
+
+<div class="flag">🇯🇵</div>
+
+<h2>Wishing You a Wonderful Trip</h2>
+
+<p>
+May your journey be filled with happiness,<br>
+beautiful memories, exciting adventures,<br>
+and countless reasons to smile.<br><br>
+
+Enjoy every moment and have a safe flight! ❤️
+</p>
+
+<!-- Background music -->
+<audio controls autoplay loop style="position:fixed;bottom:10px;left:10px;">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// Cherry blossoms
+for(let i=0;i<40;i++){
+    let f=document.createElement("div");
+    f.className="flower";
+    f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=(5+Math.random()*8)+"s";
+    f.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(f);
+}
+
+// Fireworks
+const icons=["🎆","✨","🎇"];
+for(let i=0;i<15;i++){
+    let fw=document.createElement("div");
+    fw.className="firework";
+    fw.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+    fw.style.left=Math.random()*100+"vw";
+    fw.style.top=Math.random()*60+"vh";
+    fw.style.animationDelay=Math.random()*3+"s";
+    document.body.appendChild(fw);
+}
+
+</script>
+
+</body>
+</html>
