@@ -1,55 +1,142 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Surprise for Divya</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Journey ❤️</title>
 <style>
-body{margin:0;background:linear-gradient(#020024,#0b1d51,#000);color:#fff;font-family:Arial;text-align:center;overflow:hidden}
-#gate{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-button{padding:18px 30px;font-size:24px;border-radius:40px;border:none}
-#main{display:none;padding:40px}
-.plane{position:absolute;top:60px;left:-80px;font-size:56px;animation:fly 12s linear infinite}
-@keyframes fly{from{left:-80px}to{left:110%}}
-.s{position:absolute;top:-20px;animation:fall linear infinite}
-@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
-</style></head>
-<body>
-<div id="gate">
-<h1>🎁 Tap Here to Unlock Your Surprise ❤️</h1>
-<button onclick="go()">Open Surprise</button>
-</div>
-<div id="main">
-<div class="plane">✈️</div>
-<h1>🌸 Happy Journey, Divya & Family! 🇯🇵❤️</h1>
-<p style="max-width:900px;margin:auto;font-size:22px;line-height:1.7">
-Japan poittu jolly-ah iru! 😄 Noodles saapidu 🍜, enjoy pannu, neraya places explore pannu!<br><br>
-Na inga full ah prepare panidren,so dont worry about me. Japan-la santhoshama enjoy pannu, shopping pannu, photos neraya eduthu vachikko memories-ku! 📸🌸<br><br>
-anga enna foods iruko adha taste paniru di, angayum poi appalam ah thanni la varukadhinga<br><br>
-🌸 Jolly-ah enjoy pannunga! 😄 Photos neraya eduthu vachikko! ✨ Bon Voyage! ❤️
-</p>
-<audio id="bg" loop><source src="music.mp3" type="audio/mpeg"></audio>
-</div>
-<script>
-function go(){
- document.getElementById('gate').style.display='none';
- document.getElementById('main').style.display='block';
- document.getElementById('bg').play().catch(()=>{});
- for(let i=0;i<50;i++){
-  let d=document.createElement('div');
-  d.className='s';d.textContent='🌸';
-  d.style.left=Math.random()*100+'vw';
-  d.style.fontSize=(18+Math.random()*16)+'px';
-  d.style.animationDuration=(5+Math.random()*6)+'s';
-  document.body.appendChild(d);
- }
- setInterval(()=>{
-  let f=document.createElement('div');
-  f.textContent='🎆';
-  f.style.position='absolute';
-  f.style.left=Math.random()*95+'vw';
-  f.style.top=Math.random()*45+'vh';
-  f.style.fontSize='46px';
-  document.body.appendChild(f);
-  setTimeout(()=>f.remove(),1000);
- },700);
+body{
+  margin:0;
+  background:linear-gradient(to bottom,#050520,#0b1d51,#000);
+  color:white;
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+  text-align:center;
 }
+#welcome{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+}
+button{
+  padding:18px 35px;
+  font-size:24px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+}
+#main{display:none;padding:30px;}
+h1{font-size:48px;text-shadow:0 0 15px hotpink;}
+.plane{
+  position:absolute;
+  top:70px;
+  left:-120px;
+  font-size:60px;
+  animation:fly 12s linear infinite;
+}
+@keyframes fly{
+  from{left:-120px;}
+  to{left:110%;}
+}
+</style>
+</head>
+<body>
+
+<div id="welcome">
+  <h1>🎁 Tap Here To Unlock Your Surprise ❤️</h1>
+  <button onclick="start()">Open Surprise</button>
+</div>
+
+<div id="main">
+  <div class="plane">✈️</div>
+
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1>🌸 Happy Journey, Divuuuuuuu & Family! ❤️🇯🇵</h1>
+
+  <p style="font-size:22px;max-width:900px;margin:auto;line-height:1.8">
+    Japan poga pora innum konjam nerathula... so <b>full jolly-ah iru! 😄</b><br><br>
+
+    Neraya places explore pannu, mukkiyama anga irukka foods ellam taste panni en kitta sollu edhu best nu! 🍣🍜🍱<br><br>
+
+    Angayum poi appalatha thanni-la varukkama irunga 😂<br><br>
+
+    Nee Chennai-ku thirumbi varumbodhu naan inga job-ku prepared ah iruppen, so don't worry about me! 💪😄<br><br>
+
+    Japan-la santhoshama enjoy pannu, shopping pannu, photos neraya eduthu vachikko memories-ku! 📸🌸<br><br>
+
+    Don't forget to taste the 2-minute Maggi there! 😁<br>
+    Mudinja oru packet enakkum kondu va! 😂🍜<br><br>
+
+    Mudinja chocolates-um kondu va! 🍫😋<br><br>
+
+    ❤️ Have an amazing trip, create beautiful memories and come back safely! ❤️
+  </p>
+</div>
+
+<script>
+function start(){
+  document.getElementById("welcome").style.display="none";
+  document.getElementById("main").style.display="block";
+  document.getElementById("music").play().catch(()=>{});
+
+  // Cherry blossoms
+  for(let i=0;i<60;i++){
+    const f=document.createElement("div");
+    f.innerHTML="🌸";
+    f.style.position="absolute";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top="-20px";
+    f.style.fontSize=(20+Math.random()*20)+"px";
+    f.style.animation=`fall ${5+Math.random()*6}s linear infinite`;
+    document.body.appendChild(f);
+  }
+
+  // Hearts
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.innerHTML="❤️";
+    h.style.position="absolute";
+    h.style.left=Math.random()*100+"vw";
+    h.style.bottom="0";
+    h.style.fontSize=(20+Math.random()*30)+"px";
+    h.style.transition="transform 4s linear, opacity 4s";
+    document.body.appendChild(h);
+    setTimeout(()=>{
+      h.style.transform="translateY(-100vh)";
+      h.style.opacity="0";
+    },50);
+    setTimeout(()=>h.remove(),4000);
+  },500);
+
+  // Fireworks
+  setInterval(()=>{
+    const fw=document.createElement("div");
+    fw.innerHTML="🎆";
+    fw.style.position="absolute";
+    fw.style.left=Math.random()*90+"vw";
+    fw.style.top=Math.random()*50+"vh";
+    fw.style.fontSize="50px";
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),1000);
+  },700);
+}
+
+const style=document.createElement("style");
+style.innerHTML=`
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
+}`;
+document.head.appendChild(style);
 </script>
-</body></html>
+
+</body>
+</html>
